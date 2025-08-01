@@ -1,0 +1,13 @@
+{
+  "name": "ksi-dashboard",
+  "version": "1.0.0",
+  "description": "KSI Dashboard - Encrypted Dashboard for GitHub Pages",
+  "scripts": {
+    "build": "npm run encrypt",
+    "encrypt": "staticrypt ksi-dashboard.html -o dist/index.html",
+    "serve": "npx http-server dist"
+  },
+  "devDependencies": {
+    "staticrypt": "^3.3.1"
+  }
+}
