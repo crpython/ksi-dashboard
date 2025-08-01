@@ -6,3 +6,10 @@ dist/
 src/
 ksi-dashboard.html
 source/
+encrypted/
+*.bak
+*.tmp
+.vscode/
+.idea/
+temp/
+build/
