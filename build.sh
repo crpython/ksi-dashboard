@@ -9,12 +9,16 @@ if [ -z "$STATICRYPT_PASSWORD" ]; then
     read -s STATICRYPT_PASSWORD
 fi
 
+# Copy logo to dist
+cp supertypelogo.png dist/
+
 # Encrypt the HTML file
-npx staticrypt ksi-dashboard.html \
+npx staticrypt src/ksi-dashboard.html \
     -p "$STATICRYPT_PASSWORD" \
     -o dist/index.html \
+    --template password-template.html \
     --remember 15 \
-    --title "KSI Dashboard - Encrypted" \
-    --instructions "Please enter the password to access the dashboard"
+    --title "KSI Dashboard" \
+    --instructions "Please enter the password to access the secure dashboard"
 
 echo "Dashboard encrypted successfully!"

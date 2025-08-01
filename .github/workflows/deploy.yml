@@ -34,12 +34,15 @@ jobs:
         env:
           STATICRYPT_PASSWORD: ${{ secrets.DASHBOARD_PASSWORD }}
         run: |
-          npx staticrypt ksi-dashboard.html \
+          mkdir -p dist
+          cp supertypelogo.png dist/
+          npx staticrypt src/ksi-dashboard.html \
             -p "$STATICRYPT_PASSWORD" \
             -o dist/index.html \
+            --template password-template.html \
             --remember 15 \
-            --title "KSI Dashboard - Encrypted" \
-            --instructions "Please enter the password to access the dashboard"
+            --title "KSI Dashboard" \
+            --instructions "Please enter the password to access the secure dashboard"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
