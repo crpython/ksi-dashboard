@@ -26,19 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build encrypted dashboard
-        env:
-          STATICRYPT_PASSWORD: ${{ secrets.DASHBOARD_PASSWORD }}
+      - name: Prepare deployment
         run: |
           mkdir -p dist
+          cp encrypted-dashboard.html dist/index.html
           cp supertypelogo.png dist/
-          npx staticrypt src/ksi-dashboard.html \
-            -p "$STATICRYPT_PASSWORD" \
-            -o dist/index.html \
-            --template password-template.html \
-            --remember 15 \
-            --title "KSI Dashboard" \
-            --instructions "Please enter the password to access the secure dashboard"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

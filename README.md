@@ -37,27 +37,28 @@ This dashboard is deployed to GitHub Pages with password protection using static
 
 ## Local Development
 
-To build and test locally:
+This repository contains only the encrypted version of the dashboard for security.
+The source files are not included in the repository.
+
+To serve the encrypted dashboard locally:
 
 ```bash
 # Install dependencies
 npm install
 
-# Build with password prompt
-./build.sh
-
-# Or build with environment variable
-STATICRYPT_PASSWORD="your-password" npm run build
-
-# Serve locally
-npm run serve
+# Serve the encrypted dashboard
+npx http-server .
 ```
+
+Then open `encrypted-dashboard.html` in your browser.
 
 ## Updating the Dashboard
 
-1. Make changes to `ksi-dashboard.html`
-2. Commit and push to main branch
-3. GitHub Actions will automatically rebuild and deploy
+To update the dashboard, you need to:
+1. Create your new dashboard HTML locally
+2. Encrypt it using staticrypt
+3. Replace `encrypted-dashboard.html` with the new encrypted version
+4. Commit and push to main branch
 
 ## Security Notes
 
